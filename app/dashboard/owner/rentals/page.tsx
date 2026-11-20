@@ -1,0 +1,3 @@
+"use client";
+import DashboardShell from "../../../../components/DashboardShell";
+export default function OwnerRentalsPage() { return <DashboardShell title="Equipment rentals" subtitle="Review rentals for your listed equipment."><div className="table-wrap"><table><thead><tr><th>Customer</th><th>Equipment</th><th>Duration</th><th>Quantity</th><th>Amount</th><th>Payment</th><th>Booking status</th></tr></thead><tbody><tr><td><strong>Maya Rahman</strong><br />maya@example.com</td><td>Professional Drill</td><td>Nov 22–24</td><td>1</td><td>$48</td><td><span className="status-pill approved">Paid</span></td><td><span className="status-pill confirmed">Confirmed</span></td></tr></tbody></table></div></DashboardShell>; }

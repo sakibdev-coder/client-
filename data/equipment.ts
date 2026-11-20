@@ -1,6 +1,6 @@
 export type Equipment = { id: number; name: string; category: string; location: string; price: number; rating: number; image: string };
 
-export const categories = ["All equipment", "Cameras", "Outdoor", "Tools", "Audio", "Events"];
+export const categories = ["All equipment", "Construction", "Photography", "Vehicles", "Agriculture", "Electronics", "Events"];
 
 export const equipment: Equipment[] = [
   { id: 1, name: "Sony A7 IV Camera", category: "Cameras", location: "Dhanmondi, Dhaka", price: 42, rating: 4.98, image: "https://images.unsplash.com/photo-1516035069371-29a1b244cc32?auto=format&fit=crop&w=800&q=85" },

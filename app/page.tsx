@@ -2,6 +2,7 @@
 
 import { useMemo, useState } from "react";
 import Link from "next/link";
+import { motion } from "framer-motion";
 import {
   ArrowRight, BadgeCheck, Camera, Check, ChevronDown, CircleHelp, Drill, Heart,
   MapPin, Menu, Search, ShieldCheck, Sparkles, Star, Truck, UserRound, X
@@ -35,13 +36,13 @@ export default function Home() {
       <nav className="nav-shell">
         <a className="brand" href="#"><span className="brand-mark"><Drill size={18} /></span>equiply</a>
         <div className={`nav-links ${menuOpen ? "open" : ""}`}>
-          <a href="#explore">Explore</a><a href="#how-it-works">How it works</a><a href="#owners">List your gear</a>
+          <Link href="/equipment">All equipment</Link><a href="#how-it-works">How it works</a><a href="#owners">List your gear</a>
           <a href="#help">Help center</a>
         </div>
         <div className="nav-actions"><Link className="sign-in" href="/login"><UserRound size={17} /> Sign in</Link><button className="menu-button" onClick={() => setMenuOpen(!menuOpen)}>{menuOpen ? <X /> : <Menu />}</button><Link className="button button-dark" href="/register">Get started <ArrowRight size={16} /></Link></div>
       </nav>
 
-      <section className="hero">
+      <motion.section className="hero" initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.65 }}>
         <div className="hero-copy">
           <div className="eyebrow"><span className="eyebrow-dot" /> The smarter way to rent</div>
           <h1>Make room for <em>more</em> possibilities.</h1>
@@ -57,7 +58,7 @@ export default function Home() {
           <div className="floating-card location-card"><span className="icon-box peach"><MapPin size={17} /></span><div><strong>4,200+</strong><small>items near you</small></div></div>
           <div className="floating-card rating-card"><Star size={16} fill="#f3a83b" color="#f3a83b" /><strong>4.9</strong><small>community rating</small></div>
         </div>
-      </section>
+      </motion.section>
 
       <section className="stats"><div className="stats-inner">{stats.map((stat) => <div className="stat" key={stat.label}><strong>{stat.value}</strong><span>{stat.label}</span></div>)}<div className="stat-note"><BadgeCheck size={18} /><span>Every rental is<br /><strong>verified & protected</strong></span></div></div></section>
 
@@ -69,6 +70,15 @@ export default function Home() {
       </section>
 
       <section className="how-section" id="how-it-works"><div className="section-heading centered"><div><div className="eyebrow">Simple by design</div><h2>Good gear. <em>Good people.</em><br />No guesswork.</h2></div></div><div className="steps"><div className="step"><span>01</span><Search /><h3>Find what you need</h3><p>Search thousands of unique items from people in your community.</p></div><div className="step"><span>02</span><ShieldCheck /><h3>Book with confidence</h3><p>Every owner is verified and every booking is protected.</p></div><div className="step"><span>03</span><Truck /><h3>Enjoy the moment</h3><p>Pick up locally or get it delivered. It&apos;s that easy.</p></div></div></section>
+
+      <section className="section reviews-section"><div className="section-heading"><div><div className="eyebrow">Community stories</div><h2>People rent. <em>People return.</em></h2></div></div><div className="review-grid">{[
+        ["Maya Rahman","The camera was spotless and ready on arrival. The whole booking felt safe and simple.","5"],
+        ["Arif Hossain","A fair price, a helpful owner, and no warehouse hassle. Perfect for a short project.","5"],
+        ["Nabila Islam","I found event equipment the same afternoon. Great support and an easy pickup.","4.9"],
+        ["Tanvir Ahmed","The delivery and rental terms were clear. I will definitely rent from Equiply again.","5"]
+      ].map(([name,review,rating]) => <article className="review-card" key={name}><div className="review-stars">{Array.from({ length: 5 }).map((_,i)=><Star key={i} size={14} fill="currentColor" />)} <strong>{rating}</strong></div><p>“{review}”</p><div className="review-author"><span>{name[0]}</span><strong>{name}<small>Verified renter</small></strong></div></article>)}</div></section>
+
+      <section className="extra-section"><div><div className="eyebrow">Recently added</div><h2>Fresh gear, ready to work.</h2><p>Discover the newest approved listings from trusted owners.</p><Link className="text-link" href="/equipment">Browse new arrivals <ArrowRight size={16} /></Link></div><div className="extra-section"><div className="extra-mini-card"><Camera /><strong>Photography</strong><span>New kits every week</span></div><div className="extra-mini-card"><Drill /><strong>Tools</strong><span>Project-ready inventory</span></div><div className="extra-mini-card"><Truck /><strong>Vehicles</strong><span>Flexible pickup options</span></div></div></section>
 
       <section className="owner-banner" id="owners"><div><div className="eyebrow light">Your stuff can do more</div><h2>Turn your idle gear into<br /><em>extra income.</em></h2><p>List the things you&apos;re not using every day. We&apos;ll help you find trusted renters.</p><button className="button button-light">Start listing your gear <ArrowRight size={17} /></button></div><div className="owner-art"><div className="owner-circle" /><img src="https://images.unsplash.com/photo-1552820728-8b83bb6b773f?auto=format&fit=crop&w=700&q=85" alt="Person holding a camera" /><div className="earnings"><small>Average monthly earnings</small><strong>$482.60</strong><span>↗ 18% this month</span></div></div></section>
 
