@@ -1,4 +1,4 @@
-export type Equipment = { id: number; name: string; category: string; location: string; price: number; rating: number; image: string };
+export type Equipment = { id: number | string; name: string; category: string; location: string; price: number; rating: number; image: string };
 
 export const categories = ["All equipment", "Construction", "Photography", "Vehicles", "Agriculture", "Electronics", "Events"];
 

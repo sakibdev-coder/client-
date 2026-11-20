@@ -19,7 +19,7 @@ export default function Home() {
   const [query, setQuery] = useState("");
   const [activeCategory, setActiveCategory] = useState("All equipment");
   const [menuOpen, setMenuOpen] = useState(false);
-  const [saved, setSaved] = useState<number[]>([]);
+  const [saved, setSaved] = useState<(number | string)[]>([]);
   const [selected, setSelected] = useState<Equipment | null>(null);
 
   const filtered = useMemo(() => equipment.filter((item) => {
@@ -28,7 +28,7 @@ export default function Home() {
     return matchesCategory && matchesQuery;
   }), [activeCategory, query]);
 
-  const toggleSaved = (id: number) => setSaved((current) => current.includes(id)
+  const toggleSaved = (id: number | string) => setSaved((current) => current.includes(id)
     ? current.filter((savedId) => savedId !== id) : [...current, id]);
 
   return (
