@@ -1,6 +1,7 @@
 "use client";
 
 import { useMemo, useState } from "react";
+import Link from "next/link";
 import {
   ArrowRight, BadgeCheck, Camera, Check, ChevronDown, CircleHelp, Drill, Heart,
   MapPin, Menu, Search, ShieldCheck, Sparkles, Star, Truck, UserRound, X
@@ -37,7 +38,7 @@ export default function Home() {
           <a href="#explore">Explore</a><a href="#how-it-works">How it works</a><a href="#owners">List your gear</a>
           <a href="#help">Help center</a>
         </div>
-        <div className="nav-actions"><button className="sign-in"><UserRound size={17} /> Sign in</button><button className="menu-button" onClick={() => setMenuOpen(!menuOpen)}>{menuOpen ? <X /> : <Menu />}</button><button className="button button-dark">Get started <ArrowRight size={16} /></button></div>
+        <div className="nav-actions"><Link className="sign-in" href="/login"><UserRound size={17} /> Sign in</Link><button className="menu-button" onClick={() => setMenuOpen(!menuOpen)}>{menuOpen ? <X /> : <Menu />}</button><Link className="button button-dark" href="/register">Get started <ArrowRight size={16} /></Link></div>
       </nav>
 
       <section className="hero">
