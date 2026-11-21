@@ -17,6 +17,22 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
     if (storedToken && storedUser) {
       try { setToken(storedToken); setUser(JSON.parse(storedUser) as User); }
       catch { window.localStorage.removeItem("equiply_token"); window.localStorage.removeItem("equiply_user"); }
+    } else {
+      fetch("/api/auth/google-session", {
+        credentials: "include"
+      })
+        .then(async (response) => {
+          if (!response.ok) return null;
+          return await response.json() as { token: string; user: User };
+        })
+        .then((result) => {
+          if (!result) return;
+          window.localStorage.setItem("equiply_token", result.token);
+          window.localStorage.setItem("equiply_user", JSON.stringify(result.user));
+          setToken(result.token);
+          setUser(result.user);
+        })
+        .catch(() => undefined);
     }
     setLoading(false);
   }, []);
