@@ -5,6 +5,7 @@ import { createContext, useContext, useEffect, useMemo, useState } from "react";
 export type User = { id: string; name: string; email: string; photo?: string; role: "Customer" | "Owner" | "Admin" };
 type AuthContextValue = { user: User | null; token: string | null; loading: boolean; signIn: (token: string, user: User) => void; signOut: () => void };
 const AuthContext = createContext<AuthContextValue | null>(null);
+const apiUrl = (process.env.NEXT_PUBLIC_API_URL || "http://localhost:5001/api").replace(/\/api\/?$/, "");
 
 export function AuthProvider({ children }: { children: React.ReactNode }) {
   const [user, setUser] = useState<User | null>(null);
@@ -18,7 +19,7 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
       try { setToken(storedToken); setUser(JSON.parse(storedUser) as User); }
       catch { window.localStorage.removeItem("equiply_token"); window.localStorage.removeItem("equiply_user"); }
     } else {
-      fetch("/api/auth/google-session", {
+      fetch(`${apiUrl}/api/auth/google-session`, {
         credentials: "include"
       })
         .then(async (response) => {
