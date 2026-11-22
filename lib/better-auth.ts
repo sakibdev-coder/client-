@@ -1,10 +1,9 @@
 "use client";
 
 import { createAuthClient } from "better-auth/react";
-
-const apiUrl = (process.env.NEXT_PUBLIC_API_URL || "http://localhost:5001/api").replace(/\/api\/?$/, "");
+import { getApiOrigin } from "./config";
 
 export const betterAuthClient = createAuthClient({
-  baseURL: apiUrl,
+  baseURL: getApiOrigin(),
   basePath: "/api/better-auth"
 });

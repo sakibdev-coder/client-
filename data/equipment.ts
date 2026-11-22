@@ -1,12 +1,61 @@
-export type Equipment = { id: number | string; name: string; category: string; location: string; price: number; rating: number; image: string };
+export const categories = [
+  "All equipment",
+  "Construction Equipment",
+  "Photography Equipment",
+  "Vehicles & Transportation",
+  "Agriculture Equipment",
+  "Electronics",
+  "Event Equipment"
+];
 
-export const categories = ["All equipment", "Construction", "Photography", "Vehicles", "Agriculture", "Electronics", "Events"];
+export const popularCategories = [
+  {
+    name: "Construction Equipment",
+    blurb: "Drills, mixers, and site-ready tools",
+    image: "https://images.unsplash.com/photo-1504148455328-c376907d081c?auto=format&fit=crop&w=800&q=85"
+  },
+  {
+    name: "Photography Equipment",
+    blurb: "Cameras, lenses, and lighting kits",
+    image: "https://images.unsplash.com/photo-1516035069371-29a1b244cc32?auto=format&fit=crop&w=800&q=85"
+  },
+  {
+    name: "Vehicles & Transportation",
+    blurb: "Short-term transport for projects",
+    image: "https://images.unsplash.com/photo-1449965408869-eaa3f722e40d?auto=format&fit=crop&w=800&q=85"
+  },
+  {
+    name: "Agriculture Equipment",
+    blurb: "Field tools for seasonal work",
+    image: "https://images.unsplash.com/photo-1625246333195-78d9c38ad449?auto=format&fit=crop&w=800&q=85"
+  },
+  {
+    name: "Electronics",
+    blurb: "Reliable tech for events and offices",
+    image: "https://images.unsplash.com/photo-1498049794561-7780e7231661?auto=format&fit=crop&w=800&q=85"
+  },
+  {
+    name: "Event Equipment",
+    blurb: "Lights, audio, and stage essentials",
+    image: "https://images.unsplash.com/photo-1514525253161-7a46d19cd819?auto=format&fit=crop&w=800&q=85"
+  }
+];
 
-export const equipment: Equipment[] = [
-  { id: 1, name: "Sony A7 IV Camera", category: "Cameras", location: "Dhanmondi, Dhaka", price: 42, rating: 4.98, image: "https://images.unsplash.com/photo-1516035069371-29a1b244cc32?auto=format&fit=crop&w=800&q=85" },
-  { id: 2, name: "Cedar Camp Set", category: "Outdoor", location: "Gulshan, Dhaka", price: 28, rating: 4.91, image: "https://images.unsplash.com/photo-1475483768296-6163e08872a1?auto=format&fit=crop&w=800&q=85" },
-  { id: 3, name: "Makita Power Drill", category: "Tools", location: "Banani, Dhaka", price: 16, rating: 4.87, image: "https://images.unsplash.com/photo-1504148455328-c376907d081c?auto=format&fit=crop&w=800&q=85" },
-  { id: 4, name: "JBL Party Speaker", category: "Audio", location: "Uttara, Dhaka", price: 34, rating: 4.95, image: "https://images.unsplash.com/photo-1608043152269-423dbba4e7e1?auto=format&fit=crop&w=800&q=85" },
-  { id: 5, name: "Leica Street Kit", category: "Cameras", location: "Mohammadpur, Dhaka", price: 55, rating: 5.0, image: "https://images.unsplash.com/photo-1452780212940-6f5c0d14d848?auto=format&fit=crop&w=800&q=85" },
-  { id: 6, name: "Event Light Pair", category: "Events", location: "Mirpur, Dhaka", price: 22, rating: 4.82, image: "https://images.unsplash.com/photo-1514525253161-7a46d19cd819?auto=format&fit=crop&w=800&q=85" }
+export const whyChooseUs = [
+  {
+    title: "Affordable rental prices",
+    text: "Pay only for the days you need. Transparent pricing with no warehouse markup."
+  },
+  {
+    title: "Verified equipment owners",
+    text: "Every listing is reviewed before approval so renters know who they are booking from."
+  },
+  {
+    title: "Flexible rental periods",
+    text: "Book daily, weekly, or monthly depending on the project timeline."
+  },
+  {
+    title: "Secure online payments",
+    text: "Stripe Checkout keeps card details protected and booking records confirmed."
+  }
 ];

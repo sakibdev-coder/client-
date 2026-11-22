@@ -1,16 +1,18 @@
 import type { Metadata } from "next";
 import "./globals.css";
-import { AuthProvider } from "../lib/auth";
+import { Providers } from "../components/Providers";
 
 export const metadata: Metadata = {
-  title: "Equiply | Rent better equipment",
-  description: "A trusted marketplace for professional equipment rentals."
+  title: "Equiply | Professional equipment rentals",
+  description: "A premium marketplace for verified equipment — book dates, pay securely, and rent with confidence."
 };
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="en">
-      <body><AuthProvider>{children}</AuthProvider></body>
+      <body>
+        <Providers>{children}</Providers>
+      </body>
     </html>
   );
 }
